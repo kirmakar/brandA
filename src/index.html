@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BACARDÍ Rums : Explore our Rums and Cocktail Recipes : BACARDÍ</title>
+    <link rel="stylesheet" href="./AgeGate.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <script>
+        var optanonCookieName = 'OptanonConsent';
+        var optanonAlertBoxClosedCookieName = 'OptanonAlertBoxClosed';
+        //Get Cookie Details from parent
+        window.addEventListener("message", receiveMessage, false);
+        
+        function receiveMessage(event) {
+            console.log('message received')
+            if (event && event.data.OptanonConsent !== undefined) {
+                setCookie("OptanonConsent", event.data.OptanonConsent);
+                if(event.data.OptanonAlertBoxClosed){
+                    setCookie("OptanonAlertBoxClosed", event.data.OptanonAlertBoxClosed)
+            }
+        }
+    }
+        
+        
+    function setCookie(name, value) {
+        var date = new Date();
+        date.setTime(date.getTime() + 365 * 24 * 60 * 60 * 1000);
+        document.cookie = name + '=' + value + '; path=/; expires=' + date.toUTCString() +';';
+    }
+        
+    //Send cookie details to parent
+    window.onload = function() {
+        if(getCookie(optanonCookieName)){
+            var cookie1 = getCookie(optanonCookieName);
+            var cookie2 = getCookie(optanonAlertBoxClosedCookieName)
+            if(cookie2){
+                parent.postMessage({
+                    name: "OneTrustCookies",
+                    OptanonConsent: cookie1,
+                    OptanonAlertBoxClosed: cookie2
+                }, "*");
+            } else{
+                parent.postMessage({
+                    name: "OneTrustCookies",
+                    OptanonConsent: cookie1
+                }, "*");
+            }
+        } else{
+            parent.postMessage({
+                    name: "OneTrustCookies",
+                }, "*");
+        }
+           
+    }
+        
+    function getCookie(name) {
+        var nameEq = name + '=',
+            ca = document.cookie.split(';'),
+            i,
+            c;
+        
+        for (i = 0; i < ca.length; i += 1) {
+            c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1, c.length);
+        
+            }
+            if (c.indexOf(nameEq) == 0) {
+                return c.substring(nameEq.length, c.length);
+        
+            }
+        }
+        return "";
+     }
+  </script>
+</head>
+<body>
+    <div id="overlay">
+        <div id="bgVideoContainer" class="background-video-container">
+                <video id="bgvid" class="background-video" playsinline="" autoplay="" muted="" loop="" poster="./images/agegate-backrground-poster.jpg">
+                    <source src="./video/agegate-background.mp4" type="video/mp4">
+                </video>
+                <div class="background-video-cover"></div>
+        </div>
+        <div class="page-layout">
+            <div class="page-wrapper">
+                <div class="agegate">
+                    <main class="agegate__main">
+                        <div class="banner">
+                            <div class="bacardi-logo">
+                                    <img src="./images/logo.png" />
+                            </div>
+                            <div class="banner__frame banner__frame--top">
+                                <div class="frame-top-left"></div>
+                                <div class="frame-top-center"></div>
+                                <div class="frame-top-right"></div>
+                            </div>
+                            <div class="banner__frame banner__frame--center">
+                                <div class="banner-content">
+                                    <div>
+                                        <div class="age-gate__title-dob">
+                                            <div>PLEASE ENTER YOUR</div> 
+                                            <div>DATE OF BIRTH</div>
+                                        </div>
+                                    </div>
+                                    <div class="form">
+                                        <div class="form-wrapper__item--mm">
+                                            <input class="form-control form-control--dob integerOnly" name="dobMonth" value="" type="number" pattern="[0-9]*" placeholder="MM" id="dateofbirth_mm" maxlength="2" onkeyup="">
+                                        </div>
+                                        <div class="ag-date-divider">/</div>
+                                        <div class="form-wrapper__item--dd">
+                                            <input class="form-control form-control--dob integerOnly" name="dobDay" value="" type="number" pattern="[0-9]*" placeholder="DD" id="dateofbirth_dd" maxlength="2" onkeyup="">           
+                                        </div>
+                                        <div class="ag-date-divider">/</div>
+                                        <div class="form-wrapper__item--yyyy">
+                                            <input class="form-control form-control--dob integerOnly" name="dobYear" value="" type="number" pattern="[0-9]*" placeholder="YYYY" id="dateofbirth_yyyy" maxlength="4">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="banner__frame banner__frame--bottom">
+                                <div class="frame-bottom-left"></div>
+                                <div class="frame-bottom-center"></div>
+                                <div class="frame-bottom-right"></div>
+                            </div>
+                        </div>
+                    </main>
+                    <footer class="agegate__footer">
+                        <div class="policy">
+                            <div class="policy__text">
+                                <div>You must be of legal age to enter this site, and by entering you agree to our <a class="policy__link" target="_blank" href="https://www.bacardi.com/us/en/terms-and-conditions/">terms and conditions</a> and <a class="policy__link" target="_blank" href="https://www.bacardi.com/us/en/privacy-policy/">privacy policy</a>.</div>
+                                <div>For info on our cookies and how to set preferences see cookie policy.</div>
+                            </div>
+                        </div>
+                        <div class="motto">
+                            <span class="motto__text">LIVE PASSIONATELY. DRINK RESPONSIBLY.</span>
+                        </div>
+                        <div class="info">
+                            <span class="info__text">For information on Alcohol Responsibility visit <a class="info__link" target="_blank" href="http://www.responsibledrinking.org/">responsibledrinking.org</a> and <a class="info__link" href="https://www.responsibility.org/">responsibility.org</a></span>
+                        </div>
+                        <div class="trademark">
+                            <span class="trademark__text">© 2020 BACARDÍ, ITS TRADE DRESS AND THE BAT DEVICE ARE TRADEMARKS OF BACARDI & COMPANY LIMITED</span>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function OptanonWrapper() {
+            function E(b) {
+                b += "\x3d";
+                var e = document.cookie.split(";"),
+                    g, h;
+                for (g = 0; g < e.length; g += 1) {
+                    for (h = e[g];
+                        " " == h.charAt(0);)
+                        h = h.substring(1, h.length);
+                    if (0 == h.indexOf(b))
+                        return h.substring(b.length, h.length)
+                }
+                return null
+            } 
+                
+            var value = E('OptanonConsent');
+            var value1 = E('OptanonAlertBoxClosed');
+            
+            for (i = 0; i < window.frames.length; i++) { //for each frame/iframe on the page
+                    var pass_data = {
+                        'OptanonConsent': value,
+                        'OptanonAlertBoxClosed': value1
+                    };
+                    window.frames[i].postMessage(pass_data, '*');
+            }
+        }
+    </script>
+    
+    <script>
+            (function(){
+                var iframe = document.createElement('iframe');
+                
+                // Change .src to their iframe
+                iframe.src = "[[full iframe URL]]";
+                iframe.name = "OTcrossDomain";
+                document.body.appendChild(iframe);
+                    window.addEventListener('message', function(event) { //Add event listener
+                        if(event.data.name === "OneTrustCookies"){
+                            var date = new Date();
+                            date.setTime(date.getTime() + 365 * 24 * 60 * 60 * 1000);
+                            if(event.data.OptanonConsent){
+                                document.cookie = "OptanonConsent=" + event.data.OptanonConsent + ";path=/; expires=" + date.toUTCString() +";";
+                                document.cookie = "OptanonAlertBoxClosed=" + event.data.OptanonAlertBoxClosed + ";path=/; expires=" + date.toUTCString() +";";
+                            }
+                            var script = document.createElement('script'); 
+                            script.type = 'text/javascript'; 
+                            script.setAttribute('src', 'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js';);
+                            script.setAttribute('charset', 'UTF-8');
+                            
+                            // Change to their data-domain-script
+                            script.setAttribute('data-domain-script', '[[Add Domain ID]]'); 
+                            document.getElementsByTagName('head')[0].appendChild(script);
+                        }
+                    })
+            })()
+        </script>
+</body>
+</html>
