@@ -38,6 +38,10 @@ html {
 	-webkit-overflow-scrolling: touch;
 }
 
+#onetrust-banner-sdk {
+	display: none;
+}
+
 body {
     color: #1a1818;
 	font-family: GrotesqueMTStd, sans-serif;

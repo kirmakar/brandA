@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="./AgeGate.css">
     <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-    <script>
+    <script async>
         var optanonCookieName = 'OptanonConsent';
         var optanonAlertBoxClosedCookieName = 'OptanonAlertBoxClosed';
         //Get Cookie Details from parent
@@ -138,7 +138,7 @@
                         <div class="policy">
                             <div class="policy__text">
                                 <div>You must be of legal age to enter this site, and by entering you agree to our <a class="policy__link" target="_blank" href="https://www.bacardi.com/us/en/terms-and-conditions/">terms and conditions</a> and <a class="policy__link" target="_blank" href="https://www.bacardi.com/us/en/privacy-policy/">privacy policy</a>.</div>
-                                <div>For info on our cookies and how to set preferences see cookie policy.</div>
+                                <div>For info on our cookies and how to <a id="cookie-preferences" class="policy__link" href="">set</a> preferences see cookie policy.</div>
                             </div>
                         </div>
                         <div class="motto">
@@ -185,7 +185,7 @@
         }
     </script>
     
-    <script>
+    <!-- <script>
             (function(){
                 var iframe = document.createElement('iframe');
                 
@@ -203,7 +203,7 @@
                             }
                             var script = document.createElement('script'); 
                             script.type = 'text/javascript'; 
-                            script.setAttribute('src', 'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js';);
+                            script.setAttribute('src', 'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js');
                             script.setAttribute('charset', 'UTF-8');
                             
                             // Change to their data-domain-script
@@ -212,6 +212,45 @@
                         }
                     })
             })()
-        </script>
+    </script> -->
+
+    <script>
+        document.querySelector('#cookie-preferences').addEventListener("click", toggleCookiePreferences, false);
+
+        function toggleCookiePreferences(e) { 
+            e.preventDefault(); 
+            if(OneTrust && OneTrust.ToggleInfoDisplay) { 
+                OneTrust.ToggleInfoDisplay(); 
+            }
+        }
+    </script>
+    <script> 
+        window.addEventListener ("load", function () {
+            limitInputSymbols("#dateofbirth_dd", 2);
+        })
+        window.addEventListener ("load", function () {
+            limitInputSymbols("#dateofbirth_mm", 2);
+        })
+        window.addEventListener ("load", function () {
+            limitInputSymbols("#dateofbirth_yyyy", 4);
+        })
+
+    
+        function limitInputSymbols (input_id, limit) {
+            const t = typeof input_id === "string" ? document.querySelector(input_id) : input_id,
+            f = function (e) {
+                const v = t.value.split("");
+                if (v.length > limit) {
+                    t.value = v.slice(0, limit).join("");
+                }
+            };
+            t.addEventListener ("input", f);
+        }
+
+        // function validateInput(input_id) {
+           
+        // }
+       
+    </script>
 </body>
 </html>
