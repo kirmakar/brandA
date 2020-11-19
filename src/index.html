@@ -114,16 +114,19 @@
                                     </div>
                                     <div class="form">
                                         <div class="form-wrapper__item--mm">
-                                            <input class="form-control form-control--dob integerOnly" name="dobMonth" value="" type="number" pattern="[0-9]*" placeholder="MM" id="dateofbirth_mm" maxlength="2" onkeyup="">
+                                            <input class="form-control form-control--dob integerOnly" name="dobMonth" value="" type="number" pattern="[0-9]*" min="1" max="12" placeholder="MM" id="dateofbirth_mm" maxlength="2" onkeyup="">
                                         </div>
                                         <div class="ag-date-divider">/</div>
                                         <div class="form-wrapper__item--dd">
-                                            <input class="form-control form-control--dob integerOnly" name="dobDay" value="" type="number" pattern="[0-9]*" placeholder="DD" id="dateofbirth_dd" maxlength="2" onkeyup="">           
+                                            <input class="form-control form-control--dob integerOnly" name="dobDay" value="" type="number" pattern="[0-9]*" min="1" max="31" placeholder="DD" id="dateofbirth_dd" maxlength="2" onkeyup="">           
                                         </div>
                                         <div class="ag-date-divider">/</div>
                                         <div class="form-wrapper__item--yyyy">
-                                            <input class="form-control form-control--dob integerOnly" name="dobYear" value="" type="number" pattern="[0-9]*" placeholder="YYYY" id="dateofbirth_yyyy" maxlength="4">
+                                            <input class="form-control form-control--dob integerOnly" name="dobYear" value="" type="number" pattern="[0-9]*" min="1915" max="2020" placeholder="YYYY" id="dateofbirth_yyyy" maxlength="4">
                                         </div>
+                                    </div>
+                                    <div id="dateValidationMessage" class="error">
+                                        <span class="error__text hide">Please enter a valid date of birth</span>
                                     </div>
                                 </div>
                             </div>
@@ -137,8 +140,8 @@
                     <footer class="agegate__footer">
                         <div class="policy">
                             <div class="policy__text">
-                                <div>You must be of legal age to enter this site, and by entering you agree to our <a class="policy__link" target="_blank" href="https://www.bacardi.com/us/en/terms-and-conditions/">terms and conditions</a> and <a class="policy__link" target="_blank" href="https://www.bacardi.com/us/en/privacy-policy/">privacy policy</a>.</div>
-                                <div>For info on our cookies and how to <a id="cookie-preferences" class="policy__link" href="">set</a> preferences see cookie policy.</div>
+                                <div>You must be of legal age to enter this site, and by entering you agree to our <a class="policy__link" href="https://www.bacardi.com/us/en/terms-and-conditions/" target="_blank">terms and conditions</a> and <a class="policy__link" href="https://www.bacardi.com/us/en/privacy-policy/" target="_blank">privacy policy</a>.</div>
+                                <div>For info on our cookies and how to <a id="cookie-preferences" class="policy__link" href="">set</a> preferences see <a class="policy__link" href="https://www.bacardi.com/us/en/cookie-policy/" target="_blank">cookie policy</a>.</div>
                             </div>
                         </div>
                         <div class="motto">
@@ -224,33 +227,6 @@
             }
         }
     </script>
-    <script> 
-        window.addEventListener ("load", function () {
-            limitInputSymbols("#dateofbirth_dd", 2);
-        })
-        window.addEventListener ("load", function () {
-            limitInputSymbols("#dateofbirth_mm", 2);
-        })
-        window.addEventListener ("load", function () {
-            limitInputSymbols("#dateofbirth_yyyy", 4);
-        })
-
-    
-        function limitInputSymbols (input_id, limit) {
-            const t = typeof input_id === "string" ? document.querySelector(input_id) : input_id,
-            f = function (e) {
-                const v = t.value.split("");
-                if (v.length > limit) {
-                    t.value = v.slice(0, limit).join("");
-                }
-            };
-            t.addEventListener ("input", f);
-        }
-
-        // function validateInput(input_id) {
-           
-        // }
-       
-    </script>
+    <script src="./agegate.js"></script>
 </body>
 </html>

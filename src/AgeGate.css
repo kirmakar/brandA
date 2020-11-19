@@ -323,6 +323,23 @@ input[type=number] {
     font-family: GrotesqueDispMTStdBoldExt, sans-serif
 }
 
+.error {
+	margin: 5px 10px;
+}
+
+.error__text {
+	color: #c10020;
+	font-size: 1.2rem
+}
+
+.hide {
+	display: none;
+}
+
+.show {
+	display: block;
+}
+
 .agegate__footer {
     margin-bottom: 25px;
     font-size: 1.2rem;
