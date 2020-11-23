@@ -4,84 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://cdn.cookielaw.org/consent/65b17560-cad1-40f8-8c67-f8780dc6a8fa-test/OtAutoBlock.js" ></script>
+    <script> window.dataLayer = window.dataLayer || []; function gtag(){
+        dataLayer.push(arguments);
+        } gtag('set', 'developer_id.dNzMyY2', true); gtag('consent', 'default', {'analytics_storage': 'denied'}); gtag('consent', 'default', {'ad_storage': 'denied'}); </script>
     <!-- OneTrust Cookies Consent Notice start for brand-a-bac.herokuapp.com -->
     <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="65b17560-cad1-40f8-8c67-f8780dc6a8fa-test" ></script>
     <script type="text/javascript">
-        function OptanonWrapper() { }
+        function OptanonWrapper() {} 
     </script>
     <!-- OneTrust Cookies Consent Notice end for brand-a-bac.herokuapp.com -->
     <title>BACARDÍ Rums : Explore our Rums and Cocktail Recipes : BACARDÍ</title>
     <link rel="stylesheet" href="./agegate.css">
     <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-    <script async>
-        var optanonCookieName = 'OptanonConsent';
-        var optanonAlertBoxClosedCookieName = 'OptanonAlertBoxClosed';
-        //Get Cookie Details from parent
-        window.addEventListener("message", receiveMessage, false);
-        
-        function receiveMessage(event) {
-            console.log('message received')
-            if (event && event.data.OptanonConsent !== undefined) {
-                setCookie("OptanonConsent", event.data.OptanonConsent);
-                if(event.data.OptanonAlertBoxClosed){
-                    setCookie("OptanonAlertBoxClosed", event.data.OptanonAlertBoxClosed)
-            }
-        }
-    }
-        
-        
-    function setCookie(name, value) {
-        var date = new Date();
-        date.setTime(date.getTime() + 365 * 24 * 60 * 60 * 1000);
-        document.cookie = name + '=' + value + '; path=/; expires=' + date.toUTCString() +';';
-    }
-        
-    //Send cookie details to parent
-    window.onload = function() {
-        if(getCookie(optanonCookieName)){
-            var cookie1 = getCookie(optanonCookieName);
-            var cookie2 = getCookie(optanonAlertBoxClosedCookieName)
-            if(cookie2){
-                parent.postMessage({
-                    name: "OneTrustCookies",
-                    OptanonConsent: cookie1,
-                    OptanonAlertBoxClosed: cookie2
-                }, "*");
-            } else{
-                parent.postMessage({
-                    name: "OneTrustCookies",
-                    OptanonConsent: cookie1
-                }, "*");
-            }
-        } else{
-            parent.postMessage({
-                    name: "OneTrustCookies",
-                }, "*");
-        }
-           
-    }
-        
-    function getCookie(name) {
-        var nameEq = name + '=',
-            ca = document.cookie.split(';'),
-            i,
-            c;
-        
-        for (i = 0; i < ca.length; i += 1) {
-            c = ca[i];
-            while (c.charAt(0) == ' ') {
-                c = c.substring(1, c.length);
-        
-            }
-            if (c.indexOf(nameEq) == 0) {
-                return c.substring(nameEq.length, c.length);
-        
-            }
-        }
-        return "";
-     }
-  </script>
+    <script src="onetrust-helpers.js" async></script>
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -124,15 +61,15 @@
                                     </div>
                                     <div class="form">
                                         <div class="form-wrapper__item--mm">
-                                            <input class="form-control form-control--dob integerOnly" name="dobMonth" value="" type="number" pattern="[0-9]*" min="1" max="12" placeholder="MM" id="dateofbirth_mm" maxlength="2" onkeyup="">
+                                            <input class="form-control form-control--dob integerOnly" name="dobMonth" value="" type="number" pattern="[0-9]*" min="1" max="12" placeholder="MM" id="dateofbirth_mm" maxlength="2" tabindex="1">
                                         </div>
                                         <div class="ag-date-divider">/</div>
                                         <div class="form-wrapper__item--dd">
-                                            <input class="form-control form-control--dob integerOnly" name="dobDay" value="" type="number" pattern="[0-9]*" min="1" max="31" placeholder="DD" id="dateofbirth_dd" maxlength="2" onkeyup="">           
+                                            <input class="form-control form-control--dob integerOnly" name="dobDay" value="" type="number" pattern="[0-9]*" min="1" max="31" placeholder="DD" id="dateofbirth_dd" maxlength="2" tabindex="2">           
                                         </div>
                                         <div class="ag-date-divider">/</div>
                                         <div class="form-wrapper__item--yyyy">
-                                            <input class="form-control form-control--dob integerOnly" name="dobYear" value="" type="number" pattern="[0-9]*" min="1915" max="2020" placeholder="YYYY" id="dateofbirth_yyyy" maxlength="4">
+                                            <input class="form-control form-control--dob integerOnly" name="dobYear" value="" type="number" pattern="[0-9]*" min="1915" max="2020" placeholder="YYYY" id="dateofbirth_yyyy" maxlength="4" tabindex="3">
                                         </div>
                                     </div>
                                     <div id="dateValidationMessage" class="error">
@@ -168,9 +105,19 @@
             </div>
         </div>
     </div>
+    <div class="test">test</div>
 
     <script type="text/javascript">
         function OptanonWrapper() {
+            if (OnetrustActiveGroups.indexOf('C0002') != -1) {
+                gtag('consent', 'update', {'analytics_storage': 'granted'});
+            }  else {     
+                gtag('consent', 'update', {'analytics_storage': 'denied'});
+            }
+            // if (OnetrustActiveGroups.indexOf('C0004') != -1) { 
+            //     gtag('consent', 'update', {'ad_storage': 'granted'});
+            // }; 
+
             function E(b) {
                 b += "\x3d";
                 var e = document.cookie.split(";"),
@@ -236,7 +183,9 @@
                 OneTrust.ToggleInfoDisplay(); 
             }
         }
+
+        gtag('consent', 'update', {'analytics_storage': 'denied'});
     </script>
-    <script src="./agegate.js"></script>
+    <script src="./agegate.js" type="module"></script>
 </body>
 </html>
